@@ -1,9 +1,4 @@
 # medical-appointment-system
-echo. > index.html
-mkdir static
-mkdir static\css
-echo. > static\css\style.css
-notepad index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +23,6 @@ notepad index.html
     <script src="static/js/script.js"></script>
 </body>
 </html>
-notepad static\css\style.css
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -51,7 +45,6 @@ input, button {
     margin-top: 5px;
     padding: 8px;
 }
-notepad static\js\script.js
 document.getElementById('appointmentForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const patientName = document.getElementById('patientName').value;
@@ -81,5 +74,6 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
         console.error('Error:', error);
     });
 });
+
 
 
