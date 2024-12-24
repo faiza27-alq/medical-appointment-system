@@ -1,6 +1,5 @@
-django
-djangorestframework
-drf-yasg
-psycopg2-binary
-uvicorn
 fastapi
+uvicorn
+sqlalchemy
+databases
+pydantic
