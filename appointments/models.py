@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Date, Time
 from sqlalchemy.orm import relationship
-from app.database import Base
+from appointments.database import Base
 
 class Doctor(Base):
     __tablename__ = "doctors"
@@ -23,7 +23,7 @@ class Patient(Base):
 class Appointment(Base):
     __tablename__ = "appointments"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary key=True, index=True)
     date = Column(Date, index=True)
     time = Column(Time, index=True)
     doctor_id = Column(Integer, ForeignKey("doctors.id"))
