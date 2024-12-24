@@ -1,4 +1,7 @@
+import os
 from fastapi import FastAPI
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'medical_appointment_system.settings')
 
 app = FastAPI()
 
