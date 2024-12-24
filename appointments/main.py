@@ -1,11 +1,17 @@
+import os
+import django
 from fastapi import FastAPI
-from app.routers import doctors, patients, appointments
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'medical_appointment_system.settings')
+django.setup()
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Medical Appointment System"}
+
+from app.routers import doctors, patients, appointments
 
 app.include_router(doctors.router, prefix="/doctors", tags=["Doctors"])
 app.include_router(patients.router, prefix="/patients", tags=["Patients"])
