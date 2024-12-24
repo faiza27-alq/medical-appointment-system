@@ -1,7 +1,9 @@
 import os
+import django
 from fastapi import FastAPI
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'medical_appointment_system.settings')
+django.setup()
 
 app = FastAPI()
 
@@ -24,3 +26,4 @@ def get_patients():
 @app.get("/appointments")
 def get_appointments():
     return AppointmentViewSet.as_view({'get': 'list'})(request=None)
+
