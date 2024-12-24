@@ -1,29 +1,15 @@
-# views.py
-from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework import viewsets
 from .models import Doctor, Patient, Appointment
-from .forms import AppointmentForm
+from .serializers import DoctorSerializer, PatientSerializer, AppointmentSerializer
 
-def index(request):
-    return render(request, 'appointments/index.html')
+class DoctorViewSet(viewsets.ModelViewSet):
+    queryset = Doctor.objects.all()
+    serializer_class = DoctorSerializer
 
-def doctor_list(request):
-    doctors = Doctor.objects.all()
-    return render(request, 'appointments/doctor_list.html', {'doctors': doctors})
+class PatientViewSet(viewsets.ModelViewSet):
+    queryset = Patient.objects.all()
+    serializer_class = PatientSerializer
 
-def patient_list(request):
-    patients = Patient.objects.all()
-    return render(request, 'appointments/patient_list.html', {'patients': patients})
-
-def appointment_list(request):
-    appointments = Appointment.objects.all()
-    return render(request, 'appointments/appointment_list.html', {'appointments': appointments})
-
-def appointment_create(request):
-    if request.method == 'POST':
-        form = AppointmentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('appointment_list')
-    else:
-        form = AppointmentForm()
-    return render(request, 'appointments/appointment_form.html', {'form': form})
+class AppointmentViewSet(viewsets.ModelViewSet):
+    queryset = Appointment.objects.all()
+    serializer_class = AppointmentSerializer
