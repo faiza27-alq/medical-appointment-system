@@ -1,5 +1,5 @@
 medical_appointment_system/
-├── app/
+├── appointments/
 │   ├── __init__.py
 │   ├── main.py
 │   ├── models.py
