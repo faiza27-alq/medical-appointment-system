@@ -1,10 +1,3 @@
-medical-appointment-system/
-├── index.html
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── script.js
 medical_appointment_system/
 ├── __init__.py
 ├── settings.py
@@ -16,5 +9,9 @@ medical_appointment_system/
 │   ├── apps.py
 │   ├── models.py
 │   ├── tests.py
-│   └── views.py
+│   ├── urls.py
+│   ├── views.py
+│   └── forms.py
 ├── manage.py
+├── requirements.txt
+
