@@ -11,7 +11,7 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome to the Medical Appointment System"}
 
-from app.routers import doctors, patients, appointments
+from appointments.routers import doctors, patients, appointments
 
 app.include_router(doctors.router, prefix="/doctors", tags=["Doctors"])
 app.include_router(patients.router, prefix="/patients", tags=["Patients"])
