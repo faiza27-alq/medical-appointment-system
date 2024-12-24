@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app import models, schemas
+from appointments import models, schemas
 
 def get_doctors(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Doctor).offset(skip).limit(limit).all()
