@@ -1,24 +1,33 @@
-from django.db import models
+from sqlalchemy import Column, Integer, String, ForeignKey, Date, Time
+from sqlalchemy.orm import relationship
+from app.database import Base
 
-class Doctor(models.Model):
-    name = models.CharField(max_length=100)
-    specialty = models.CharField(max_length=100)
+class Doctor(Base):
+    __tablename__ = "doctors"
 
-    def __str__(self):
-        return self.name
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    specialty = Column(String, index=True)
 
-class Patient(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
+    appointments = relationship("Appointment", back_populates="doctor")
 
-    def __str__(self):
-        return self.name
+class Patient(Base):
+    __tablename__ = "patients"
 
-class Appointment(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    date = models.DateField()
-    time = models.TimeField()
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    age = Column(Integer, index=True)
 
-    def __str__(self):
-        return f"{self.doctor} - {self.patient} ({self.date} {self.time})"
+    appointments = relationship("Appointment", back_populates="patient")
+
+class Appointment(Base):
+    __tablename__ = "appointments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    date = Column(Date, index=True)
+    time = Column(Time, index=True)
+    doctor_id = Column(Integer, ForeignKey("doctors.id"))
+    patient_id = Column(Integer, ForeignKey("patients.id"))
+
+    doctor = relationship("Doctor", back_populates="appointments")
+    patient = relationship("Patient", back_populates="appointments")
