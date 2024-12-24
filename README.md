@@ -1,19 +1,16 @@
 medical_appointment_system/
-├── __init__.py
-├── settings.py
-├── urls.py
-├── wsgi.py
-├── render.yaml
-├── main.py
-├── appointments/
+├── app/
 │   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
+│   ├── main.py
 │   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   ├── views.py
-│   └── forms.py
-├── manage.py
+│   ├── schemas.py
+│   ├── crud.py
+│   ├── database.py
+│   └── routers/
+│       ├── __init__.py
+│       ├── doctors.py
+│       ├── patients.py
+│       └── appointments.py
 ├── requirements.txt
+├── render.yaml
 
