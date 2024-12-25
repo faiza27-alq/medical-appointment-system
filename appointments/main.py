@@ -1,4 +1,3 @@
-import os
 from fastapi import FastAPI
 from appointments.routers import doctors, patients, appointments
 
