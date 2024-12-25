@@ -3,6 +3,3 @@ uvicorn
 sqlalchemy
 databases
 pydantic
-django
-djangorestframework
-drf-yasg
