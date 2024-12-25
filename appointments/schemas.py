@@ -44,5 +44,3 @@ class Appointment(AppointmentBase):
 
     class Config:
         orm_mode = True
-
-
