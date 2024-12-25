@@ -13,4 +13,3 @@ medical_appointment_system/
 │       └── appointments.py
 ├── requirements.txt
 ├── render.yaml
-
