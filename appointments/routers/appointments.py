@@ -24,24 +24,7 @@ def read_appointment(appointment_id: int, db: Session = Depends(get_db)):
     db_appointment = crud.get_appointment(db, appointment_id=appointment_id)
     if db_appointment is None:
         raise HTTPException(status_code=404, detail="Appointment not found")
-    return db_appointment
-
-@router.post("/", response_model=schemas.Appointment)
-def create_appointment(appointment: schemas.AppointmentCreate, db: Session = Depends(get_db)):
-    return crud.create_appointment(db=db, appointment=appointment)
-
-@router.delete("/{appointment_id}")
-def delete_appointment(appointment_id: int, db: Session = Depends(get_db)):
-    crud.delete_appointment(db, appointment_id=appointment_id)
-    return {"message": "Appointment deleted successfully"}
-
-
-
-
-
-
-
-
+   [_{{{CITATION{{{_1{](https://github.com/boA01/boA01.github.windows/tree/e8bcb761e3f3c23608b56207d39a2f059c7c0f52/pythonApp%2FfastapiApp%2Fapp%2Fmodels%2Fdatabase.py)[_{{{CITATION{{{_2{](https://github.com/shippokun/fastapi/tree/a2d69fd3b70e720dbe9839736b029c4d0bd7e450/sql%2Fdatabase.py)
 
 
 
