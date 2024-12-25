@@ -13,7 +13,7 @@ class Doctor(DoctorBase):
     appointments: list
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # orm_mode dəyişdirildi
 
 class PatientBase(BaseModel):
     name: str
@@ -27,7 +27,7 @@ class Patient(PatientBase):
     appointments: list
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # orm_mode dəyişdirildi
 
 class AppointmentBase(BaseModel):
     date: date
@@ -43,5 +43,4 @@ class Appointment(AppointmentBase):
     patient: Patient
 
     class Config:
-        orm_mode = True
-
+        from_attributes = True  # orm_mode dəyişdirildi
