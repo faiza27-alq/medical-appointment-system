@@ -1,4 +1,8 @@
 medical_appointment_system/
+├── __init__.py
+├── settings.py
+├── urls.py
+├── wsgi.py
 ├── appointments/
 │   ├── __init__.py
 │   ├── main.py
